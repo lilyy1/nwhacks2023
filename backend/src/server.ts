@@ -1,10 +1,11 @@
 import app from "./app"
+import env from "./util/validateEnv"
 import mongoose from "mongoose";
 
 
 const port = process.env.PORT;
 
-mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string)
+mongoose.connect(env.MONGODB_CONNECTION_STRING)
   .then(() => {
     console.log("Mongoose connected");
     app.listen(port, () => {
