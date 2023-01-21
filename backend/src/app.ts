@@ -1,10 +1,15 @@
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
+import plantRoutes from "./routes/plantRoutes";
 
 const app = express();
 
+app.use(express.json());
+
+app.use("/api/plants", plantRoutes);
+
 app.use((req, res, next) => {
-    next(Error("Endpoint not found"))
+    next(Error("Endpoint not found"));
 });
 
 // error handler

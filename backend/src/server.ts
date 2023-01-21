@@ -3,7 +3,7 @@ import env from "./util/validateEnv"
 import mongoose from "mongoose";
 
 
-const port = process.env.PORT;
+const port = env.PORT;
 
 mongoose.connect(env.MONGODB_CONNECTION_STRING)
   .then(() => {
