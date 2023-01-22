@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 
 const port = env.PORT;
 
+mongoose.set("strictQuery", false);
+
 mongoose.connect(env.MONGODB_CONNECTION_STRING)
   .then(() => {
     console.log("Mongoose connected");

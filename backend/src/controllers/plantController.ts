@@ -1,8 +1,8 @@
 import { RequestHandler } from "express";
-import PlantModel from "../models/plant";
+import { PlantModel } from "../models/models";
 
 export const getPlants: RequestHandler = async (req, res, next) => {
-    try {
+    try {        
         const plants = await PlantModel.find().exec();
         res.status(200).json(plants);
     } catch (error) {
@@ -11,10 +11,7 @@ export const getPlants: RequestHandler = async (req, res, next) => {
 }
 
 export const createPlant: RequestHandler = async (req, res, next) => {
-    const name = req.body.name;
-    const plant = req.body.plant;
-    const type = req.body.type;
-    const water = req.body.water;
+    const { name, plant, type, water } = req.body;
     try {
         const newPlant = await PlantModel.create({
             name: name,
@@ -22,7 +19,7 @@ export const createPlant: RequestHandler = async (req, res, next) => {
             type: type,
             water: water,
         });
-        res.send(201).json(newPlant)
+        res.status(201).json(newPlant)
     } catch (error) {
         next(error);
     }
