@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
-import UserModel from "../models/user";
 import createHttpError from "http-errors";
 import bcrypt from "bcrypt";
+import { UserModel } from "../models/models";
 
 interface signUpBody {
     username?: string,
