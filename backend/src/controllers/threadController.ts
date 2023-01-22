@@ -29,16 +29,18 @@ export const createThread: RequestHandler = async (req, res, next) => {
     }
 }
 
-// DELETE api/threads/:
-// export const deleteThread: RequestHandler = async (req, res, next) => {
-//     const {  } = req.params;
+// DELETE api/threads/
+export const deleteThread: RequestHandler = async (req, res, next) => {
+    const { name, author, timestamp } = req.body;
     
-//     try {
-//         const newThread = await ThreadModel.deleteOne({
-//             _id: id,
-//         });
-//         res.status(201).json(newThread)
-//     } catch (error) {
-//         next(error);
-//     }
-// }
+    try {
+        const newThread = await ThreadModel.deleteOne({
+            name: name,
+            author: author,
+            timestamp: timestamp
+        });
+        res.status(201).json(newThread)
+    } catch (error) {
+        next(error);
+    }
+}
