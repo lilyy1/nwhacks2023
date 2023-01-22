@@ -1,10 +1,14 @@
 import express from "express";
-import * as PlantsController from "../controllers/plantController";
+import * as PlantController from "../controllers/plantController";
 
 const router = express.Router();
 
-router.get("/", PlantsController.getPlants);
+router.get("/", PlantController.getPlants);
 
-router.post("/", PlantsController.createPlant);
+router.get("/:plantName", PlantController.getPlant)
+
+router.delete("/:plantName", PlantController.deletePlant)
+
+router.post("/", PlantController.createPlant);
 
 export default router;
