@@ -7,6 +7,6 @@ router.get("/", ThreadController.getThreads);
 
 router.post("/", ThreadController.createThread);
 
-// router.delete("/:id", ThreadController.deleteThread);
+router.delete("/", ThreadController.deleteThread);
 
 export default router;

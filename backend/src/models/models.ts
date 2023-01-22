@@ -9,6 +9,7 @@ const plantSchema = new Schema({
 
 const threadSchema = new Schema({
     name: {type: String, required:true},
+    author: {type: String, required: true},
     topic: {type: String, required: true},
 }, {timestamps: true});
 
