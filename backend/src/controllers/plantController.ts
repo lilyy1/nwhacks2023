@@ -10,6 +10,27 @@ export const getPlants: RequestHandler = async (req, res, next) => {
     }
 }
 
+export const getPlant: RequestHandler = async (req, res, next) => {
+    const plantName = req.params.plantName;
+    try {
+        const plant = await PlantModel.findById(plantName).exec();
+        res.status(200).json(plant);
+    } catch (error) {
+        next(error)
+    }
+}
+
+export const deletePlant: RequestHandler = async (req, res, next) => {
+    const plantName = req.params.plantName;
+    try {
+        const plant = await PlantModel.deleteOne({ 
+            name: plantName});
+        res.status(200).json(plant);
+    } catch (error) {
+        next(error)
+    }
+}
+
 export const createPlant: RequestHandler = async (req, res, next) => {
     const { name, plant, type, water } = req.body;
     try {
