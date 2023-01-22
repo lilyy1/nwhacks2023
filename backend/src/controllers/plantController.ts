@@ -32,11 +32,7 @@ export const deletePlant: RequestHandler = async (req, res, next) => {
 }
 
 export const createPlant: RequestHandler = async (req, res, next) => {
-<<<<<<< HEAD
     const { name, plant, type, water } = req.body;
-=======
-    const { name, plant, type, water} = req.body;
->>>>>>> 8848f13 (added user creation)
     try {
         const newPlant = await PlantModel.create({
             name: name,

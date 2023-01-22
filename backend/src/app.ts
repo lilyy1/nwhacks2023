@@ -1,12 +1,9 @@
 import "dotenv/config";
 import express, { NextFunction, Request, Response } from "express";
 import plantRoutes from "./routes/plantRoutes";
-<<<<<<< HEAD
 import threadRoutes from "./routes/threadRoutes";
-=======
 import createHttpError, { isHttpError } from "http-errors";
 import userRoutes from "./routes/userRoute";
->>>>>>> 8848f13 (added user creation)
 
 const app = express();
 
