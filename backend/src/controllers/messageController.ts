@@ -1,9 +1,9 @@
 import { RequestHandler } from "express";
 import twilioClient from "../twilio/twilio";
 
-function getMessage(stage: string, plantName: string): string {
+export function getMessage(escalation: string, plantName: string): string {
     let message: string;
-    switch (stage) {
+    switch (escalation) {
         case "0":
             message = `Hi, its ${plantName}! I am ready to be planted!`;
             break;
